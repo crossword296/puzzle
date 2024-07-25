@@ -4,7 +4,7 @@
 <meta name="generator" content="EclipseCrossword" />
 <style type="text/css"><!--
 
-body, h1, h2, h3, h4, h5, h6
+body, h1, h2, h3, h4, h5, h6, pre
 {
 	font-family: "Segoe UI", "Franklin Gothic Medium", "Arial", sans-serif;
 }
@@ -149,6 +149,24 @@ body
 	display: none;
 	margin-top: 1em;
 }
+ .demo_box {
+        display: grid;
+        grid-template-rows: 100px;
+        grid-template-columns: 140px 100px 100px 80px 60px;
+        background-color:#FFF;
+        padding:5px;
+        width:480px;
+    }
+    .demo_item {
+        margin:5px;
+        background-color:#FFF;
+        color:#000;
+        border-radius: 5px;
+        align-items: flex-start;
+        justify-content: flex-start;
+        display: flex;
+	line-height:1.2;
+    }
 
 --></style>
 
@@ -621,7 +639,17 @@ from Green Eclipse&mdash;it's free!
 	<button id="checkbutton" type="button" onclick="CheckClick();" style="display: none;">Check puzzle</button>
 </div>
 <div>テーマ：じいちゃんカフェぷれ</div>
-<div>つづく</div>
+<div class="demo_box">
+    <div class="demo_item"><pre>
+じいちゃん
+かふぇ
+ぷれ
+じかんたっぷり
+</pre></div>
+</div>
+
+<div><a href="./jcp1.html">つづく</a></div>
+
 <script type="text/javascript"><!--
 BeginCrossword();
 //-->
