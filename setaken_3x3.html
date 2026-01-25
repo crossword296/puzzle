@@ -176,42 +176,52 @@
       return patterns.size;
     }
 
-    function updateGrid() {
-      const input = inputBox.value;
-      moji = ['', '', '', ''];
-      
-      for (let i = 0; i < Math.min(4, input.length); i++) {
-        moji[i] = input[i];
-      }
+// updateGrid関数内を以下に更新
+function updateGrid() {
+  const input = inputBox.value;
+  moji = ['', '', '', ''];
+  
+  for (let i = 0; i < Math.min(4, input.length); i++) {
+    moji[i] = input[i];
+  }
 
-      // グリッドに割り当て（配列は0-indexedなので調整）
-      grid[0] = moji[0];
-      grid[1] = moji[1];
-      grid[2] = moji[2];
-      grid[3] = moji[1];
-      grid[4] = moji[2];
-      grid[5] = moji[3];
-      grid[6] = moji[2];
-      grid[7] = moji[3];
-      grid[8] = '';
+  // ご指定の新しい配置（grid[8]にmoji[0]を追加）
+  grid[0] = moji[0];
+  grid[1] = moji[1];
+  grid[2] = moji[2];
+  grid[3] = moji[1];
+  grid[4] = moji[2];
+  grid[5] = moji[3];
+  grid[6] = moji[2];
+  grid[7] = moji[3];
+  grid[8] = moji[0]; // ここを空文字から変更
 
-      // マス目に表示
-      for (let i = 0; i < 9; i++) {
-        const cell = document.getElementById(`cell-${i}`);
-        cell.textContent = grid[i];
-      }
-
-      // 正解パターン数を計算
-      if (input.length === 4) {
-        totalPatterns = calculateAllPatterns();
-        renderScoreDots();
-      } else {
-        totalPatterns = 0;
-        scoreContainer.innerHTML = '';
-      }
-
-      resetGame();
+  // マス目に表示
+  for (let i = 0; i < 9; i++) {
+    const cell = document.getElementById(`cell-${i}`);
+    cell.textContent = grid[i];
+    
+    // grid[8]も他のマスと同じデザイン（背景色など）にするための調整
+    if (i === 8) {
+      const config = window.elementSdk ? window.elementSdk.config : defaultConfig;
+      cell.style.backgroundColor = config.surface_color || defaultConfig.surface_color;
+      cell.style.color = config.primary_action_color || defaultConfig.primary_action_color;
+      cell.style.borderColor = config.secondary_action_color || defaultConfig.secondary_action_color;
+      cell.classList.add('cursor-pointer'); // クリック可能であることを示す
     }
+  }
+
+  // 正解パターン数を再計算
+  if (input.length === 4) {
+    totalPatterns = calculateAllPatterns();
+    renderScoreDots();
+  } else {
+    totalPatterns = 0;
+    scoreContainer.innerHTML = '';
+  }
+
+  resetGame();
+}
 
     function renderScoreDots() {
       scoreContainer.innerHTML = '';
