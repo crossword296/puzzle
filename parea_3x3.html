@@ -44,55 +44,50 @@
 
     .score-dot {
       transition: all 0.4s ease-out;
+    }
 
-
-/* 既存のスタイルの後に追加 */
-  .cell {
-    touch-action: manipulation;
-    user-select: none;
-    -webkit-user-select: none;
-    -webkit-tap-highlight-color: transparent; /* タップ時の青い枠を消す */
-  }
-  
-  /* スマホのキーボード表示対策 */
-  #app-wrapper {
-    min-height: -webkit-fill-available;
-  }
-
-
+    .cell {
+      touch-action: manipulation;
+      user-select: none;
+      -webkit-user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+    
+    #app-wrapper {
+      min-height: -webkit-fill-available;
     }
   </style>
   <style>@view-transition { navigation: auto; }</style>
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
  </head>
  <body class="h-full">
-  <div id="app-wrapper" class="min-h-full w-full flex flex-col items-center justify-start sm:justify-center p-4 sm:p-6 overflow-y-auto" style="background: linear-gradient(135deg, #059669 0%, #047857 100%);">
-   <div class="bg-white rounded-3xl shadow-2xl p-8 max-w-md w-full">
-    <h1 id="titleText" class="text-4xl font-bold text-center mb-6" style="color: #059669;">かぞえてアッパレア</h1>
-    <div class="mb-6"><label for="inputBox" id="inputLabel" class="block font-bold mb-2 text-lg" style="color: #065f46;">4文字の単語を入力してください</label> <input type="text" id="inputBox" maxlength="4" class="w-full px-4 py-3 rounded-xl text-2xl text-center font-bold focus:outline-none focus:ring-4" style="border: 3px solid #10b981; background-color: #f0fdf4; color: #065f46;" value="アッパレ">
+<div id="app-wrapper" class="min-h-full w-full flex flex-col items-center justify-start sm:justify-center p-4 sm:p-6 overflow-y-auto" style="background: linear-gradient(135deg, #fef08a 0%, #ccfbf1 50%, #bae6fd 100%);">
+   <div class="bg-white/90 backdrop-blur-sm rounded-3xl shadow-2xl p-8 max-w-md w-full">
+    <h1 id="titleText" class="text-4xl font-bold text-center mb-6" style="color: #ea580c;">かぞえて！あっぱれあ</h1>
+    <div class="mb-6"><label for="inputBox" id="inputLabel" class="block font-bold mb-2 text-lg" style="color: #0f172a;">4文字の単語を入力してください</label> <input type="text" id="inputBox" maxlength="4" class="w-full px-4 py-3 rounded-xl text-2xl text-center font-bold focus:outline-none focus:ring-4" style="border: 3px solid #fed7aa; background-color: #ffffff; color: #0f172a;" value="あっぱれ">
     </div>
-    <p id="instructionText" class="text-center font-semibold mb-4" style="color: #065f46;">となりあう4マスを選択してください</p>
+    <p id="instructionText" class="text-center font-semibold mb-4" style="color: #0f172a;">となりあう4マスを選択してください</p>
     <div class="grid grid-cols-3 gap-3 mb-6">
-     <div id="cell-0" data-index="0" class="cell aspect-square rounded-2xl flex items-center justify-center text-4xl font-bold cursor-pointer transition-all" style="background-color: #d1fae5; color: #047857; border: 4px solid #10b981;"></div>
-     <div id="cell-1" data-index="1" class="cell aspect-square rounded-2xl flex items-center justify-center text-4xl font-bold cursor-pointer transition-all" style="background-color: #d1fae5; color: #047857; border: 4px solid #10b981;"></div>
-     <div id="cell-2" data-index="2" class="cell aspect-square rounded-2xl flex items-center justify-center text-4xl font-bold cursor-pointer transition-all" style="background-color: #d1fae5; color: #047857; border: 4px solid #10b981;"></div>
-     <div id="cell-3" data-index="3" class="cell aspect-square rounded-2xl flex items-center justify-center text-4xl font-bold cursor-pointer transition-all" style="background-color: #d1fae5; color: #047857; border: 4px solid #10b981;"></div>
-     <div id="cell-4" data-index="4" class="cell aspect-square rounded-2xl flex items-center justify-center text-4xl font-bold cursor-pointer transition-all" style="background-color: #d1fae5; color: #047857; border: 4px solid #10b981;"></div>
-     <div id="cell-5" data-index="5" class="cell aspect-square rounded-2xl flex items-center justify-center text-4xl font-bold cursor-pointer transition-all" style="background-color: #d1fae5; color: #047857; border: 4px solid #10b981;"></div>
-     <div id="cell-6" data-index="6" class="cell aspect-square rounded-2xl flex items-center justify-center text-4xl font-bold cursor-pointer transition-all" style="background-color: #d1fae5; color: #047857; border: 4px solid #10b981;"></div>
-     <div id="cell-7" data-index="7" class="cell aspect-square rounded-2xl flex items-center justify-center text-4xl font-bold cursor-pointer transition-all" style="background-color: #d1fae5; color: #047857; border: 4px solid #10b981;"></div>
-     <div id="cell-8" data-index="8" class="cell aspect-square rounded-2xl flex items-center justify-center text-4xl font-bold" style="background-color: #f0fdf4; color: #10b981; border: 4px solid #a7f3d0;"></div>
+     <div id="cell-0" data-index="0" class="cell aspect-square rounded-2xl flex items-center justify-center text-4xl font-bold cursor-pointer transition-all" style="background-color: #fffbeb; color: #f97316; border: 4px solid #fef08a;"></div>
+     <div id="cell-1" data-index="1" class="cell aspect-square rounded-2xl flex items-center justify-center text-4xl font-bold cursor-pointer transition-all" style="background-color: #fffbeb; color: #f97316; border: 4px solid #fef08a;"></div>
+     <div id="cell-2" data-index="2" class="cell aspect-square rounded-2xl flex items-center justify-center text-4xl font-bold cursor-pointer transition-all" style="background-color: #fffbeb; color: #f97316; border: 4px solid #fef08a;"></div>
+     <div id="cell-3" data-index="3" class="cell aspect-square rounded-2xl flex items-center justify-center text-4xl font-bold cursor-pointer transition-all" style="background-color: #fffbeb; color: #f97316; border: 4px solid #fef08a;"></div>
+     <div id="cell-4" data-index="4" class="cell aspect-square rounded-2xl flex items-center justify-center text-4xl font-bold cursor-pointer transition-all" style="background-color: #fffbeb; color: #f97316; border: 4px solid #fef08a;"></div>
+     <div id="cell-5" data-index="5" class="cell aspect-square rounded-2xl flex items-center justify-center text-4xl font-bold cursor-pointer transition-all" style="background-color: #fffbeb; color: #f97316; border: 4px solid #fef08a;"></div>
+     <div id="cell-6" data-index="6" class="cell aspect-square rounded-2xl flex items-center justify-center text-4xl font-bold cursor-pointer transition-all" style="background-color: #fffbeb; color: #f97316; border: 4px solid #fef08a;"></div>
+     <div id="cell-7" data-index="7" class="cell aspect-square rounded-2xl flex items-center justify-center text-4xl font-bold cursor-pointer transition-all" style="background-color: #fffbeb; color: #f97316; border: 4px solid #fef08a;"></div>
+     <div id="cell-8" data-index="8" class="cell aspect-square rounded-2xl flex items-center justify-center text-4xl font-bold cursor-pointer transition-all" style="background-color: #fffbeb; color: #f97316; border: 4px solid #fef08a;"></div>
     </div>
-    <div class="rounded-2xl p-6" style="background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%); border: 3px solid #10b981;">
+    <div class="rounded-2xl p-6" style="background: linear-gradient(135deg, #ffffff 0%, #fffbeb 100%); border: 3px solid #fed7aa;">
      <div class="mb-4">
-      <p class="text-sm font-bold mb-1" style="color: #065f46;">選択中</p>
-      <p id="selectedText" class="text-3xl font-bold" style="color: #047857;">-</p>
+      <p class="text-sm font-bold mb-1" style="color: #0f172a;">選択中</p>
+      <p id="selectedText" class="text-3xl font-bold" style="color: #f97316;">-</p>
      </div>
      <div class="mb-4">
-      <p id="scoreLabel" class="font-bold text-lg mb-2" style="color: #065f46;">正解数</p>
+      <p id="scoreLabel" class="font-bold text-lg mb-2" style="color: #0f172a;">正解数</p>
       <div id="scoreContainer" class="flex gap-2 flex-wrap justify-center min-h-[40px]"></div>
      </div>
-     <div id="messageBox" class="mb-4 text-center font-bold text-xl min-h-[32px]"></div><button id="resetButton" class="w-full py-3 rounded-xl font-bold text-white text-lg transition-all hover:opacity-90" style="background: linear-gradient(135deg, #059669 0%, #047857 100%);">リセット</button>
+     <div id="messageBox" class="mb-4 text-center font-bold text-xl min-h-[32px]"></div><button id="resetButton" class="w-full py-3 rounded-xl font-bold text-white text-lg transition-all hover:opacity-90" style="background: linear-gradient(135deg, #f97316 0%, #eab308 100%);">リセット</button>
     </div>
    </div>
   </div>
@@ -102,11 +97,11 @@
       input_label: '4文字の単語を入力',
       instruction_text: 'となりあう4マスをタップしてください',
       score_label: '正解数',
-      background_color: '#059669',
-      surface_color: '#d1fae5',
-      text_color: '#065f46',
-      primary_action_color: '#047857',
-      secondary_action_color: '#10b981'
+      background_color: '#f97316',
+      surface_color: '#fffbeb',
+      text_color: '#0f172a',
+      primary_action_color: '#f97316',
+      secondary_action_color: '#fde047'
     };
 
     let grid = ['', '', '', '', '', '', '', '', ''];
@@ -122,7 +117,6 @@
     const messageBox = document.getElementById('messageBox');
     const resetButton = document.getElementById('resetButton');
 
-    // 隣接マス定義（0-indexedで1-9マスを0-8に変換）
     const adjacentMap = {
       0: [1, 3],
       1: [0, 2, 4],
@@ -175,7 +169,6 @@
       return patterns.size;
     }
 
-// updateGrid関数内を以下に更新
 function updateGrid() {
   const input = inputBox.value;
   moji = ['', '', '', ''];
@@ -184,7 +177,6 @@ function updateGrid() {
     moji[i] = input[i];
   }
 
-  // ご指定の新しい配置（grid[8]にmoji[0]を追加）
   grid[0] = moji[0];
   grid[1] = moji[1];
   grid[2] = moji[2];
@@ -193,24 +185,14 @@ function updateGrid() {
   grid[5] = moji[3];
   grid[6] = moji[2];
   grid[7] = moji[3];
-  grid[8] = moji[0]; // ここを空文字から変更
+  grid[8] = moji[0];
 
-  // マス目に表示
+  // cell-8 の特別扱いを無くし、すべてのマスを同じようにテキスト更新
   for (let i = 0; i < 9; i++) {
     const cell = document.getElementById(`cell-${i}`);
     cell.textContent = grid[i];
-    
-    // grid[8]も他のマスと同じデザイン（背景色など）にするための調整
-    if (i === 8) {
-      const config = window.elementSdk ? window.elementSdk.config : defaultConfig;
-      cell.style.backgroundColor = config.surface_color || defaultConfig.surface_color;
-      cell.style.color = config.primary_action_color || defaultConfig.primary_action_color;
-      cell.style.borderColor = config.secondary_action_color || defaultConfig.secondary_action_color;
-      cell.classList.add('cursor-pointer'); // クリック可能であることを示す
-    }
   }
 
-  // 正解パターン数を再計算
   if (input.length === 4) {
     totalPatterns = calculateAllPatterns();
     renderScoreDots();
@@ -263,7 +245,6 @@ function updateGrid() {
       if (grid[cellIndex] === '') return;
       if (selectedCells.includes(cellIndex)) return;
 
-      // 隣接チェック
       if (selectedCells.length > 0) {
         const lastCell = selectedCells[selectedCells.length - 1];
         if (!isAdjacent(lastCell, cellIndex)) {
@@ -277,14 +258,12 @@ function updateGrid() {
       cell.classList.add('cell-tap');
       cell.style.opacity = '0.6';
 
-      // 選択中の文字を表示
       let selected = '';
       for (let i = 0; i < selectedCells.length; i++) {
         selected += grid[selectedCells[i]];
       }
       selectedText.textContent = selected;
 
-      // 4マス選択されたら判定
       if (selectedCells.length === 4) {
         setTimeout(() => {
           checkAnswer();
@@ -303,27 +282,24 @@ function updateGrid() {
 
       if (selectedWord === targetWord) {
         if (answeredPatterns.has(patternKey)) {
-          // 回答済み
           selectedCells.forEach(index => {
             document.getElementById(`cell-${index}`).classList.add('cell-wrong');
           });
           
           messageBox.textContent = '回答済です';
-          messageBox.style.color = '#dc2626';
+          messageBox.style.color = '#ef4444';
           
           setTimeout(() => {
             clearSelection();
             messageBox.textContent = '';
           }, 1500);
         } else {
-          // 正解
           answeredPatterns.add(patternKey);
           
           selectedCells.forEach(index => {
             document.getElementById(`cell-${index}`).classList.add('cell-correct');
           });
 
-          // スコアドットの色を変更
           const config = window.elementSdk ? window.elementSdk.config : defaultConfig;
           const primaryColor = config.background_color || defaultConfig.background_color;
           
@@ -342,7 +318,7 @@ function updateGrid() {
 
           if (score === totalPatterns) {
             messageBox.textContent = '全問正解です！';
-            messageBox.style.color = '#16a34a';
+            messageBox.style.color = '#22c55e';
             
             setTimeout(() => {
               clearSelection();
@@ -354,7 +330,6 @@ function updateGrid() {
           }
         }
       } else {
-        // 不正解
         selectedCells.forEach(index => {
           document.getElementById(`cell-${index}`).classList.add('cell-wrong');
         });
@@ -379,7 +354,6 @@ function updateGrid() {
       }
     }
 
-    // イベントリスナー
     inputBox.addEventListener('input', updateGrid);
     resetButton.addEventListener('click', resetGame);
 
@@ -387,10 +361,8 @@ function updateGrid() {
       cell.addEventListener('click', handleCellClick);
     });
 
-    // 初期表示
     updateGrid();
 
-    // Element SDK
     async function onConfigChange(config) {
       document.getElementById('titleText').textContent = config.title_text || defaultConfig.title_text;
       document.getElementById('inputLabel').textContent = config.input_label || defaultConfig.input_label;
@@ -404,7 +376,8 @@ function updateGrid() {
       const secondaryColor = config.secondary_action_color || defaultConfig.secondary_action_color;
 
       document.getElementById('titleText').style.color = bgColor;
-      document.getElementById('app-wrapper').style.background = `linear-gradient(135deg, ${bgColor} 0%, ${primaryColor} 100%)`;
+      document.getElementById('selectedText').style.color = primaryColor;
+      document.getElementById('app-wrapper').style.background = `linear-gradient(135deg, ${bgColor} 0%, #bae6fd 50%, #fbcfe8 100%)`;
       
       document.getElementById('inputLabel').style.color = textColor;
       document.getElementById('instructionText').style.color = textColor;
@@ -413,24 +386,19 @@ function updateGrid() {
 
       const input = document.getElementById('inputBox');
       input.style.borderColor = secondaryColor;
-      input.style.backgroundColor = '#f0fdf4';
+      input.style.backgroundColor = '#ffffff';
       input.style.color = textColor;
 
-      resetButton.style.background = `linear-gradient(135deg, ${bgColor} 0%, ${primaryColor} 100%)`;
+      resetButton.style.background = `linear-gradient(135deg, ${bgColor} 0%, #eab308 100%)`;
 
-      for (let i = 0; i < 8; i++) {
+      // 0〜8まですべてのセル（計9個）に同じ動的カラーを適用
+      for (let i = 0; i < 9; i++) {
         const cell = document.getElementById(`cell-${i}`);
         cell.style.backgroundColor = surfaceColor;
         cell.style.color = primaryColor;
         cell.style.borderColor = secondaryColor;
       }
 
-      const emptyCell = document.getElementById('cell-8');
-      emptyCell.style.backgroundColor = '#f0fdf4';
-      emptyCell.style.color = secondaryColor;
-      emptyCell.style.borderColor = '#a7f3d0';
-
-      // スコアドットの更新
       const dots = scoreContainer.querySelectorAll('.score-dot');
       dots.forEach((dot, index) => {
         if (index < score) {
