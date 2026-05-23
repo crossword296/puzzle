@@ -272,8 +272,16 @@ function updateGrid() {
       answeredPatterns.clear();
       score = 0;
       selectedText.textContent = '-';
-      messageBox.textContent = '';
-      messageBox.style.color = '';
+
+      // 新規入力時・リセット時に「答えは○個です」を表示
+      const config = window.elementSdk ? window.elementSdk.config : defaultConfig;
+      if (totalPatterns > 0) {
+        messageBox.textContent = `答えは${totalPatterns}個です`;
+        messageBox.style.color = config.text_color || defaultConfig.text_color;
+      } else {
+        messageBox.textContent = '';
+        messageBox.style.color = '';
+      }
       
       document.querySelectorAll('.cell').forEach(cell => {
         cell.style.opacity = '1';
@@ -414,8 +422,11 @@ function updateGrid() {
         cell.classList.remove('cell-tap', 'cell-correct', 'cell-wrong');
       });
 
+      // 各判定メッセージが消えた後、全問正解でなければ「答えは○個です」に戻す
       if (score !== totalPatterns) {
-        messageBox.textContent = '';
+        const config = window.elementSdk ? window.elementSdk.config : defaultConfig;
+        messageBox.textContent = `答えは${totalPatterns}個です`;
+        messageBox.style.color = config.text_color || defaultConfig.text_color;
       }
     }
 
